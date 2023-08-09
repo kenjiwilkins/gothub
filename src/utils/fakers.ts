@@ -8,11 +8,11 @@ export function generateFakeHeadings() {
 	});
 }
 
-export function generateFakeSubHeadings() {
+export function generateFakeHeadingWithSub() {
 	return Array.from({ length: 5 }).map(() => {
 		return {
 			title: faker.word.noun(),
-			description: faker.lorem.sentence()
+			description: faker.lorem.sentence(3)
 		};
 	});
 }
