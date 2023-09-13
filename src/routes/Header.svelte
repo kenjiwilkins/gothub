@@ -7,6 +7,7 @@
 	import { generateFakeHeadingWithSub, generateFakeHeadings } from '../utils';
 	const titlesWithHeadings = generateFakeHeadingWithSub();
 	const titlesWithoutHeadings = generateFakeHeadings();
+	let isModalOpen = false;
 </script>
 
 <header>
@@ -105,26 +106,28 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal">
-		<div class="modal-content">
-			<div class="form">
-				<div class="input-area">
-					<span class="input-icon">
-						<img src={searchIcon} alt="search" height="21" width="16" />
-					</span>
-					<span class="input-suggestion-repo">repo:</span><span class="input-suggestion-repo-name"
-						>kenjiwilkins/gothub</span
-					>
-					<input type="search" class="input-body" />
+	{#if isModalOpen}
+		<div class="modal">
+			<div class="modal-content">
+				<div class="form">
+					<div class="input-area">
+						<span class="input-icon">
+							<img src={searchIcon} alt="search" height="21" width="16" />
+						</span>
+						<span class="input-suggestion-repo">repo:</span><span class="input-suggestion-repo-name"
+							>kenjiwilkins/gothub</span
+						>
+						<input type="search" class="input-body" />
+					</div>
+					<ul>
+						<li>repo:kenjiwilkins/gothub</li>
+						<li>user:kenjiwilkins</li>
+					</ul>
 				</div>
-				<ul>
-					<li>repo:kenjiwilkins/gothub</li>
-					<li>user:kenjiwilkins</li>
-				</ul>
+				<a href="/">Search syntax tip</a>
 			</div>
-			<a href="/">Search syntax tip</a>
 		</div>
-	</div>
+	{/if}
 </header>
 
 <style lang="scss">
